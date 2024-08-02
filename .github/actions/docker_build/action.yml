@@ -15,7 +15,7 @@ inputs:
     default: ""
   username:
     required: true
-    description: "Docker username"
+    description: "Docker username "
 runs:
   using: composite
   steps:
@@ -38,4 +38,4 @@ runs:
       shell: bash
       run: |
             docker image tag $DOCKER_IMAGE_NAME:$TAG ${{inputs.username}}/academy:$TAG
-            docker push ${{inputs.username}}/$DOCKER_IMAGE_NAME:$TAG
+            docker push ${{inputs.username}}/academy:$TAG
