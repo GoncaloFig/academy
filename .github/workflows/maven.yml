@@ -22,3 +22,6 @@ jobs:
     steps:
     - uses: GoncaloFig/academy/.github/actions/maven_build@main
     - uses: GoncaloFig/academy/.github/actions/docker_build@main
+      with:
+        tag_name: "academy"
+
