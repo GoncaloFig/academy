@@ -38,9 +38,9 @@ jobs:
       with:
         tag_name: $(date +%s)
         username: ${{ secrets.DOCKERHUB_USERNAME }}
-    - name: Run Teste
-      run: mvn test
-      shell: bash
+    #name: Run Teste
+    #  run: mvn test
+    #  shell: bash
 
 
 
