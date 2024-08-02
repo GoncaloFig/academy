@@ -8,6 +8,19 @@ inputs:
 runs:
   using: composite
   steps:
-    - run: |
-        echo "Update me with the necessary steps to build the application"
+    - uses: actions/checkout@v4
+    - name: Set up JDK 21
+      uses: actions/setup-java@v4
+      with:
+        java-version: '21'
+        distribution: 'temurin'
+        cache: maven
+    - name: Build with Maven
       shell: bash
+      run: mvn -B package --file pom.xml -Dmaven.test.skip=true
+    - name: Create docker image
+      shell: bash
+      run: docker build . --file ./src/main/docker/Dockerfile.jvm --tag academy:$(date +%s)
+    - name: Check docker image
+      shell: bash
+      run: docker image ls
