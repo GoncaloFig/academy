@@ -26,5 +26,7 @@ jobs:
     - uses: GoncaloFig/academy/.github/actions/maven_build@main
     - uses: GoncaloFig/academy/.github/actions/docker_build@main
       with:
-        tag_name: "academy"
+        tag_name: $(date +%s)
+        username: ${{ secrets.DOCKERHUB_USERNAME }}
+
 

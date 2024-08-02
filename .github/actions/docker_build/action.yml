@@ -13,6 +13,9 @@ inputs:
     description: "Tag name"
     required: true
     default: ""
+  username:
+    required: true
+    description: "Docker username"
 runs:
   using: composite
   steps:
@@ -26,7 +29,7 @@ runs:
             echo "DOCKER_IMAGE_NAME=${{inputs.image_name}}" >> $GITHUB_ENV
       shell: bash
     - name: Create docker image
-      run: docker build . --file ${{inputs.dockerfile_path}} --tag ${{inputs.tag_name}}
+      run: docker build . --file ${{inputs.dockerfile_path}} --tag ${{env.DOCKER_IMAGE_NAME}}:${{env.TAG}}
       shell: bash
     - name: Check docker image
       shell: bash
@@ -34,5 +37,5 @@ runs:
     - name: Push image to Docker Hub
       shell: bash
       run: |
-            docker image tag $DOCKER_IMAGE_NAME:$TAG goncalofigueiredo462/academy:$TAG
-            docker push goncalofigueiredo462/academy:$TAG
+            docker image tag $DOCKER_IMAGE_NAME:$TAG ${{inputs.username}}/$DOCKER_IMAGE_NAME:$TAG
+            docker push ${{inputs.username}}/$DOCKER_IMAGE_NAME:$TAG
