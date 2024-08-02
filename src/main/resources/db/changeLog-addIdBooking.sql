@@ -1,0 +1,2 @@
+ALTER TABLE t_booking
+    ADD COLUMN id UUID PRIMARY KEY;
