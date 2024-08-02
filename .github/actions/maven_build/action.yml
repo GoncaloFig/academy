@@ -18,3 +18,4 @@ runs:
     - name: Build with Maven
       shell: bash
       run: mvn -B package --file pom.xml -Dmaven.test.skip=true
+

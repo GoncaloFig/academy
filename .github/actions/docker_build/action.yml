@@ -18,10 +18,10 @@ runs:
   steps:
     - name: "Set props in GITHUB_ENV"
       run: |
-            if [ -z "${{ inputs.tag_name }}" ]; then
+            if [ -z "${{inputs.tag_name}}" ]; then
               echo "TAG=$(date +%s)" >> $GITHUB_ENV
             else
-            echo "TAG=${{ inputs.tag_name }}" >> $GITHUB_ENV
+            echo "TAG=${{inputs.tag_name}}" >> $GITHUB_ENV
             fi
             echo "DOCKER_IMAGE_NAME=${{inputs.image_name}}" >> $GITHUB_ENV
       shell: bash
