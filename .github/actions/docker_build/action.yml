@@ -32,9 +32,9 @@ runs:
       shell: bash
       run: docker image ls
     - name: Push image to Docker Hub
-      shell: bash
       run: |
-            docker image tag ${{inputs.image_name}}:${{inputs.tag_name}} goncalofigueiredo462/academy:${{inputs.tag_name}}
+            docker tag goncalofigueiredo462/academy:$TAG
             docker push goncalofigueiredo462/academy:$TAG
+      shell: bash
 
 
