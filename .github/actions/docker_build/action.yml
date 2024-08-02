@@ -31,4 +31,10 @@ runs:
     - name: Check docker image
       shell: bash
       run: docker image ls
+    - name: Push image to Docker Hub
+      shell: bash
+      run: |
+            docker image tag $DOCKER_IMAGE_NAME:$TAG goncalofigueiredo462/academy:$TAG
+            docker push goncalofigueiredo462/academy:$TAG
+
 
