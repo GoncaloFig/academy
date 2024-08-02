@@ -31,3 +31,5 @@ jobs:
       run: mvn -B package --file pom.xml -Dmaven.test.skip=true
     - name: Create docker image
       run: docker build . --file ./src/main/docker/Dockerfile.jvm --tag academy:$(date +%s)
+    - name: Check docker image
+      run: docker image ls
