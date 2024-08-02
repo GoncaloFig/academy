@@ -3,7 +3,7 @@ description: Build application with Maven and create a new Docker image
 inputs:
   dockerfile_path:
     description: "Path to the Dockerfile"
-    required: false
+    required: true
     default: "Dockerfile"
   image_name:
     description: "Image name"
@@ -11,7 +11,7 @@ inputs:
     default: "academy"
   tag_name:
     description: "Tag name"
-    required: false
+    required: true
     default: ""
 runs:
   using: composite
